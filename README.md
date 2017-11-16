@@ -19,3 +19,7 @@ plugins: [
     new UniformPropsPlugin({ size: 'small' })
 ]
 ```
+
+<h2 align="center">License</h2>
+
+> MIT
