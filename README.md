@@ -1,4 +1,3 @@
-[Baidu](http://www.baidu.com)
 
 <div align="center">
   <a href="https://github.com/webpack/webpack">
@@ -11,7 +10,7 @@
 
 <h2 align="center">Install</h2>
 
-No elegant way now, but copy `dist/*` to you project.
+<div align="center">No elegant way now, but copy `dist/*` to you project.</div>
 
 <h2 align="center">Usage</h2>
 
