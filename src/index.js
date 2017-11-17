@@ -1,5 +1,6 @@
 import { ReplaceSource } from 'webpack-sources';
 import Insertion from './insertion.js';
+import { propertyExists } from './acronHelper.js';
 import {
   AFTER_FIRST_PARAM_END,
   BEFORE_SECOND_PARAM_END,
@@ -36,15 +37,12 @@ export default class UniformPropsPlugin {
     this.insertionMap.set(module, values);
   }
 
-  propertyExists (props, key) { 
-    return  props.some((prop) => prop.key.name === key);
-  }
 
   dealWithSecondParam (second) {
     const methods = {
       'ObjectExpression': () =>  {
         const props = second.properties;
-        if (!this.propertyExists(props, 'size')) {
+        if (!propertyExists(props, 'size')) {
           return new Insertion(BEFORE_SECOND_PARAM_END, second.range);
         } else {
           //  If the specified prop has been set, then do nothing.
