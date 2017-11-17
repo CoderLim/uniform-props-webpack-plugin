@@ -23,3 +23,6 @@ plugins: [
 <h2 align="center">License</h2>
 
 > MIT
+
+
+[![Join the chat at https://gitter.im/uniform-props-webpack-plugin/Lobby](https://badges.gitter.im/uniform-props-webpack-plugin/Lobby.svg)](https://gitter.im/uniform-props-webpack-plugin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
