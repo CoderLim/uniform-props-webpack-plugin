@@ -1,5 +1,5 @@
 
-import { propertyExists } from '../src/parseHelper.js';
+import { propertyExists } from '../src/acronHelper.js';
 
 describe('Property Exists', () => {
   it('should compare prop.key.name with propName', () => {
