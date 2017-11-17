@@ -1,6 +1,6 @@
 import { ReplaceSource } from 'webpack-sources';
 import Insertion from './insertion.js';
-import { propertyExists } from './acronHelper.js';
+import { propertyExists } from './acornHelper.js';
 import {
   AFTER_FIRST_PARAM_END,
   BEFORE_SECOND_PARAM_END,
