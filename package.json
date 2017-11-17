@@ -9,8 +9,11 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
     "build:example": "(cd example/react-test && webpack)",
+    "clean": "del-cli dist",
     "test": "jest",
-    "clean": "del-cli dist"
+    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "travis:test": "npm run test -- --runInBand",
+    "travis:coverage": "npm run test:coverage -- --runInBand"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,10 @@
     "webpack-sources": "^1.0.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.0",
     "del-cli": "^1.1.0",
