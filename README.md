@@ -1,3 +1,5 @@
+[![npm][npm]][npm-url]
+[![tests][tests]][tests-url]
 
 <div align="center">
   <a href="https://github.com/webpack/webpack">
@@ -23,3 +25,13 @@ plugins: [
 <h2 align="center">License</h2>
 
 > MIT
+
+
+
+
+
+[npm]: https://img.shields.io/npm/v/uniform-props-webpack-plugin.svg
+[npm-url]: https://npmjs.com/package/uniform-props-webpack-plugin
+
+[tests]: https://www.travis-ci.org/CoderLim/uniform-props-webpack-plugin.svg?branch=master
+[tests-url]: https://travis-ci.org/webpack-contrib/extract-text-webpack-plugin
