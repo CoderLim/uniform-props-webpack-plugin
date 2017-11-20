@@ -1,3 +1,4 @@
 *node_modules*
 *exvim*
 dist/*
+test/js/*
