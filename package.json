@@ -2,7 +2,7 @@
   "name": "uniform-props-webpack-plugin",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "example": "example"
   },
