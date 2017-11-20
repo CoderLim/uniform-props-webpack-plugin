@@ -10,8 +10,8 @@
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
     "build:example": "(cd example/react-test && webpack)",
     "clean": "del-cli dist",
-    "test": "jest",
-    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "test": "npm run build && jest",
+    "test:coverage": "npm run build && jest --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:test": "npm run test -- --runInBand",
     "travis:coverage": "npm run test:coverage -- --runInBand"
   },
