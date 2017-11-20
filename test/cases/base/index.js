@@ -1,7 +1,7 @@
 //
 //
 //
-var React = require('react');
+var React = require('./React.js');
 
 React.createElement('Button');
 React.createElement('Button', null);
