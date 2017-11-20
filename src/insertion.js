@@ -1,3 +1,8 @@
+import {
+  AFTER_FIRST_PARAM_END,
+  BEFORE_SECOND_PARAM_END,
+  REPLACE_SECOND_PARAM
+} from './position.js';
 
 export default class Insertion {
   constructor(type, range) {
