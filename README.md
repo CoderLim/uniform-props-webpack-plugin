@@ -7,19 +7,27 @@
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
   <h1>Uniform Props Plugin</h1>
-  <p>Initialize React Element' properties uniformly.</p>
+  <p>Add extra props to all elements, which created by `React.createElement`.  </p>
 </div>
 
 <h2 align="center">Install</h2>
 
-<div align="center">No elegant way now, but copy `dist/*` to you project.</div>
+```bash
+npm install --save-dev uniform-props-webpack-plugin
+```
 
 <h2 align="center">Usage</h2>
 
 ```js
-plugins: [
+module.exports = {
+  entry: "./index.js",
+  output: {
+    filename: '[name].js',
+  },
+  plugins: [
     new UniformPropsPlugin({ size: 'small' })
-]
+  ]
+}
 ```
 
 <h2 align="center">License</h2>
