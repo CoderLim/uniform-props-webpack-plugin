@@ -1,8 +1,11 @@
 {
   "name": "uniform-props-webpack-plugin",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/cjs.js",
+  "files": [
+    "dist"
+  ],
   "directories": {
     "example": "example"
   },
