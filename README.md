@@ -2,6 +2,10 @@
 [![tests][tests]][tests-url]
 
 <div align="center">
+  <a href="https://github.com/CoderLim/uniform-props-webpack-plugin">
+    <img width="200" height="200"
+      src="https://github.com/CoderLim/uniform-props-webpack-plugin/blob/master/assets/icon.png">
+  </a>
   <a href="https://github.com/webpack/webpack">
     <img width="200" height="200"
       src="https://webpack.js.org/assets/icon-square-big.svg">
