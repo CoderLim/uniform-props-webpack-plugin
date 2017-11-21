@@ -46,4 +46,4 @@ module.exports = {
 [npm-url]: https://npmjs.com/package/uniform-props-webpack-plugin
 
 [tests]: https://www.travis-ci.org/CoderLim/uniform-props-webpack-plugin.svg?branch=master
-[tests-url]: https://travis-ci.org/webpack-contrib/extract-text-webpack-plugin
+[tests-url]: https://www.travis-ci.org/CoderLim/uniform-props-webpack-plugin
