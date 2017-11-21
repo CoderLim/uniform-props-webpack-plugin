@@ -14,7 +14,13 @@
   <p>Add extra props to all elements, which created by `React.createElement`.  </p>
 </div>
 
+<h2 align="center">Introduction</h2>
+
+`uniform-props-webpack-plugin` is a webpack plugin, which allows you to inject one property to all react elements. You can inject only one property at present, I'll consider whether I should make it support multi properties or maybe not. This plugin is not as good as what I need, because the injected property will apply to all react elements, some of the elements maybe not support the property, so you'd better treat `uniform-props-webpack-plugin` as an temporary alternative;
+
 <h2 align="center">Install</h2>
+
+Install with npm: 
 
 ```bash
 npm install --save-dev uniform-props-webpack-plugin
