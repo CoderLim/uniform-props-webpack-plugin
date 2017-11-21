@@ -93,7 +93,6 @@ export default class UniformPropsPlugin {
               const first = args[0];
               const second = args[1];
               let newInsertion = null;
-              debugger;
               if (args.length > 1) {
                 // generate Insertion according to second parameter.
                 newInsertion = this.dealWithSecondParam(second);
@@ -111,7 +110,6 @@ export default class UniformPropsPlugin {
         let insertions = this.insertionMap.get(module);
         if (!insertions) return;
         let source = new ReplaceSource(module._source);
-        debugger;
         insertions.forEach(insertion => {
           insertion.applyTo(source, 'size: \'small\'');
         });
