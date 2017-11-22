@@ -1,5 +1,6 @@
 [![npm][npm]][npm-url]
 [![tests][tests]][tests-url]
+[![Join the chat at https://gitter.im/uniform-props-webpack-plugin/Lobby][gitter]][gitter-url]
 
 <div align="center">
   <a href="https://github.com/CoderLim/uniform-props-webpack-plugin">
@@ -46,10 +47,11 @@ module.exports = {
 
 
 
-
-
 [npm]: https://img.shields.io/npm/v/uniform-props-webpack-plugin.svg
 [npm-url]: https://npmjs.com/package/uniform-props-webpack-plugin
 
 [tests]: https://www.travis-ci.org/CoderLim/uniform-props-webpack-plugin.svg?branch=master
 [tests-url]: https://www.travis-ci.org/CoderLim/uniform-props-webpack-plugin
+
+[gitter]: https://badges.gitter.im/uniform-props-webpack-plugin/Lobby.svg
+[gitter-url]: https://gitter.im/uniform-props-webpack-plugin/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
