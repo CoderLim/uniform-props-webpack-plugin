@@ -1,6 +1,7 @@
+import BasicEvaluatedExpression from 'webpack/lib/BasicEvaluatedExpression.js';
 import { ReplaceSource } from 'webpack-sources';
 import Insertion from './insertion.js';
-import { propertyExists } from './acronHelper.js';
+import { propertyExists } from './acornHelper.js';
 import {
   AFTER_FIRST_PARAM_END,
   BEFORE_SECOND_PARAM_END,
@@ -37,7 +38,6 @@ export default class UniformPropsPlugin {
     this.insertionMap.set(module, values);
   }
 
-
   dealWithSecondParam (second) {
     const methods = {
       'ObjectExpression': () =>  {
@@ -69,24 +69,40 @@ export default class UniformPropsPlugin {
       });
 
       params.normalModuleFactory.plugin('parser', (parser, parserOptions) => {
-        // some modules maybe not need parse
-        // e.g. modules specified by `exclude: node_modules` key word in webpack.conf.js
-        parser.plugin('call React.createElement', (expr) => {
-          let module = null;
-          if (module = parser.state.module) {
-            const { arguments: args } = expr;
-            const first = args[0];
-            const second = args[1];
-            let newInsertion = null;
-            debugger;
-            if (args.length > 1) {
-              // generate Insertion according to second parameter.
-              newInsertion = this.dealWithSecondParam(second);
-            } else {
-              newInsertion = new Insertion(AFTER_FIRST_PARAM_END, first.range);
+        // if you used babel to assemble files, then `_react2.default` worked;
+        // if you used ProvidePlugin, then `React` worked and `Plugin One` is optional;
+        // if your code like `React = requie('react')`, then `React` worked.
+        const exprNames = ['React', '_react2.default'].map(name => `${name}.createElement`);
+
+        exprNames.forEach(exprName => {
+          // Plugin One
+          // return BasicEvaluatedExpression instance with identifier,
+          // in order to let parser execute the next plugin `call ${exprName}`.
+          parser.plugin(`evaluate defined Identifier ${exprName}`, (expr) => {
+            return new BasicEvaluatedExpression().setIdentifier(exprName).setRange(expr.range);
+          });
+
+          // Plugin Two
+          // record the position where codeline is about to be changed.
+          parser.plugin(`call ${exprName}`, (expr) => {
+            let module = null;
+            // if modules that doesn't need parse, `parser.state.module` will be null
+            // e.g. modules specified by `exclude: node_modules` key word in webpack.conf.js
+            if (module = parser.state.module) {
+              const { arguments: args } = expr;
+              const first = args[0];
+              const second = args[1];
+              let newInsertion = null;
+              if (args.length > 1) {
+                // generate Insertion according to second parameter.
+                newInsertion = this.dealWithSecondParam(second);
+              } else {
+                newInsertion = new Insertion(AFTER_FIRST_PARAM_END, first.range);
+              }
+              this.addInsertion(module, newInsertion);
             }
-            this.addInsertion(module, newInsertion);
-          }
+          });
+
         });
       });
 
@@ -94,9 +110,7 @@ export default class UniformPropsPlugin {
         let insertions = this.insertionMap.get(module);
         if (!insertions) return;
         let source = new ReplaceSource(module._source);
-        debugger;
         insertions.forEach(insertion => {
-          // console.log(module._source._value.substring(insertion.range[0], insertion.range[1]));
           insertion.applyTo(source, 'size: \'small\'');
         });
         module._source = source;

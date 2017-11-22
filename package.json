@@ -1,8 +1,11 @@
 {
   "name": "uniform-props-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "dist/cjs.js",
+  "files": [
+    "dist"
+  ],
   "directories": {
     "example": "example"
   },
@@ -10,8 +13,8 @@
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
     "build:example": "(cd example/react-test && webpack)",
     "clean": "del-cli dist",
-    "test": "jest",
-    "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
+    "test": "npm run build && jest",
+    "test:coverage": "npm run build && jest --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:test": "npm run test -- --runInBand",
     "travis:coverage": "npm run test:coverage -- --runInBand"
   },
@@ -35,6 +38,7 @@
     "webpack-sources": "^1.0.2"
   },
   "devDependencies": {
+    "acorn": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -42,6 +46,8 @@
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.0",
     "del-cli": "^1.1.0",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "react": "^16.1.1",
+    "webpack": "^3.8.1"
   }
 }
